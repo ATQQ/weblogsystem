@@ -11,8 +11,10 @@
 <script>
 import * as echarts from 'echarts'
 import chartConfig from './config'
+import resize from '@/layout/mixin/resize'
 
 export default {
+  mixins: [resize],
   props: {
     className: {
       type: String,

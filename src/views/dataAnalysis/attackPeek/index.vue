@@ -1,5 +1,13 @@
 <template>
-  <div class="app-container">
+  <div>
+    <div style="text-align: center;">
+      结束日期选择:<el-date-picker
+        v-model="endDate"
+        style="margin:10px;"
+        type="date"
+        placeholder="选择日期"
+      />
+    </div>
     <div
       :id="id"
       :class="className"
@@ -12,7 +20,10 @@
 import * as echarts from 'echarts'
 import chartConfig from './config'
 import { parseTime } from '@/utils/index'
+import resize from '@/layout/mixin/resize'
+
 export default {
+  mixins: [resize],
   props: {
     className: {
       type: String,
@@ -35,6 +46,14 @@ export default {
     return {
       chart: null,
       endDate: Date.now()
+    }
+  },
+  watch: {
+    endDate(newDate, oldDate) {
+      if (newDate.getTime() > Date.now()) {
+        return
+      }
+      this.refreshData()
     }
   },
   mounted() {
