@@ -1,6 +1,10 @@
-# WEB日志挖掘系统
+# WEB日志挖掘系统-demo项目
 
-基于vue+elementUI 构建
+基于[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)模板
+
+使用vue+elementUI 构建
+
+
 ## Build Setup
 
 ```bash
